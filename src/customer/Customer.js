@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Customer.css';
-import AddCustomerModal from './AddCustomerModal';
 import DeleteCustomerModal from './DeleteCustomerModal';
+import AddCustomerModal from './AddCustomerModal';
 
 const initialCustomers = [
   {

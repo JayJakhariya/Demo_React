@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login() {
+const  Login=()=> {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
@@ -30,7 +30,7 @@ function Login() {
     }
     setErrors({});
     // Add login logic here
-    navigate('/dashboard');
+    navigate('/customer');
   };
 
   return (
