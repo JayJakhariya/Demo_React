@@ -26,7 +26,7 @@ function AppContent() {
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/customer" element={<Customer />} />
         <Route path="/project" element={<Project />} />
-        <Route path="*" element={<Navigate to="/dashboard" />} />
+        {/* <Route path="*" element={<Navigate to="/dashboard" />} /> */}
       </Routes>
     </>
   );
