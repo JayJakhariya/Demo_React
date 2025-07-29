@@ -21,7 +21,6 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/customer" element={<Customer />} />
-          <Route path="/product" element={<Product />} />
       </Routes>
     </>
   );
