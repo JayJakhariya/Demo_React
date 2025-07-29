@@ -3,13 +3,10 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
   useLocation
 } from 'react-router-dom';
 import Header from './Header/Header';
-import Dashboard from './dashboard/Dashboard';
 import Customer from './customer/Customer';
-import Project from './project/Project';
 import Login from './login/Login';
 
 function AppContent() {
@@ -23,10 +20,8 @@ function AppContent() {
       {showHeader && <Header />}
       <Routes>
         <Route path="/" element={<Login />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/customer" element={<Customer />} />
-        <Route path="/project" element={<Project />} />
-        {/* <Route path="*" element={<Navigate to="/dashboard" />} /> */}
+          <Route path="/product" element={<Product />} />
       </Routes>
     </>
   );
