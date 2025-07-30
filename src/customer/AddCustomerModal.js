@@ -70,7 +70,7 @@ const AddCustomerModal=({ open, onClose, onSubmit, initialData }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h3>{initialData ? 'Edit Client' : 'Add Client'}</h3>
+        <h3>{initialData ? 'Edit Customer' : 'Add Customer'}</h3>
         <form onSubmit={handleSubmit} className="customer-form">
           <div>
             <label htmlFor="customerNumber">Customer Number:</label>

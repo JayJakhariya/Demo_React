@@ -72,8 +72,8 @@ function Customer() {
   return (
     <div className="customer-container">
       <div className="customer-header">
-        <h2>Clients</h2>
-        <button className="add-btn" onClick={handleAdd}>Add Client</button>
+        <h2>Customers</h2>
+        <button className="add-btn" onClick={handleAdd}>Add Customer</button>
       </div>
       <table className="customer-table">
         <thead>
