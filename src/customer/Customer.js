@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Customer.css';
+import { Table, Button, Badge } from 'react-bootstrap';
 import DeleteCustomerModal from './DeleteCustomerModal';
 import AddCustomerModal from './AddCustomerModal';
 
@@ -31,9 +31,6 @@ function Customer() {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
-
-
-
 
   const handleAdd = () => {
     setModalData(null);
@@ -70,18 +67,21 @@ function Customer() {
   };
 
   return (
-    <div className="customer-container">
-      <div className="customer-header">
+    <div className="container mt-4">
+      <div className="d-flex justify-content-between align-items-center mb-4">
         <h2>Customers</h2>
-        <button className="add-btn" onClick={handleAdd}>Add Customer</button>
+        <Button variant="primary" onClick={handleAdd}>
+          Add Customer
+        </Button>
       </div>
-      <table className="customer-table">
-        <thead>
+      
+      <Table striped bordered hover responsive>
+        <thead className="thead-dark">
           <tr>
             <th>Customer Number</th>
             <th>Customer Name</th>
             <th>Username</th>
-            <th>Company Name</th>
+            <th>Address</th>
             <th>Email</th>
             <th>Status</th>
             <th>Phone Number</th>
@@ -91,7 +91,9 @@ function Customer() {
         <tbody>
           {customers.length === 0 ? (
             <tr>
-              <td colSpan="8" style={{ textAlign: 'center', color: '#888' }}>No customers found.</td>
+              <td colSpan="8" className="text-center text-muted">
+                No customers found.
+              </td>
             </tr>
           ) : (
             customers.map((c) => (
@@ -102,18 +104,34 @@ function Customer() {
                 <td>{c.address}</td>
                 <td>{c.email}</td>
                 <td>
-                  <span className={c.status === 'Active' ? 'status-active' : 'status-inactive'}>{c.status}</span>
+                  <Badge bg={c.status === 'Active' ? 'success' : 'secondary'}>
+                    {c.status}
+                  </Badge>
                 </td>
                 <td>{c.phone}</td>
                 <td>
-                  <button className="edit-btn" onClick={() => handleEdit(c)}>Edit</button>
-                  <button className="delete-btn" onClick={() => handleDelete(c.id)}>Delete</button>
+                  <Button 
+                    variant="outline-primary" 
+                    size="sm" 
+                    className="me-2"
+                    onClick={() => handleEdit(c)}
+                  >
+                    Edit
+                  </Button>
+                  <Button 
+                    variant="outline-danger" 
+                    size="sm"
+                    onClick={() => handleDelete(c.id)}
+                  >
+                    Delete
+                  </Button>
                 </td>
               </tr>
             ))
           )}
         </tbody>
-      </table>
+      </Table>
+
       <AddCustomerModal
         open={showModal}
         onClose={() => { setShowModal(false); setModalData(null); }}
@@ -121,11 +139,10 @@ function Customer() {
         initialData={modalData}
       />
       <DeleteCustomerModal
-        open={deleteId !== null}
-        onClose={cancelDelete}
-        onConfirm={confirmDelete}
+        show={deleteId !== null}
+        handleClose={cancelDelete}
+        handleDelete={confirmDelete}
       />
-
     </div>
   );
 }

@@ -1,20 +1,23 @@
-import React from 'react';
-import './AddCustomerModal.css';
+import "./DeleteCustomerModal.css";
+import { Modal, Button } from "react-bootstrap";
 
-function DeleteCustomerModal({ open, onClose, onConfirm }) {
-  if (!open) return null;
+const DeleteCustomerModal = ({ show, handleClose, handleDelete }) => {
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h3>Delete Customer</h3>
-        <p>Are you sure you want to delete this customer?</p>
-        <div className="modal-actions">
-          <button onClick={onConfirm} style={{ background: '#e53935', color: '#fff' }}>Delete</button>
-          <button onClick={onClose}>Cancel</button>
-        </div>
-      </div>
-    </div>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Delete Customer</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Are you sure you want to delete this customer?</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Cancel
+        </Button>
+        <Button variant="danger" onClick={handleDelete}>
+          Delete
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
-}
+};
 
 export default DeleteCustomerModal;

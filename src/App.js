@@ -8,6 +8,8 @@ import {
 import Header from './Header/Header';
 import Customer from './customer/Customer';
 import Login from './login/Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function AppContent() {
   const location = useLocation();
